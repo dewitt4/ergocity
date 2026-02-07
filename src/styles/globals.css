@@ -1,0 +1,143 @@
+/* src/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* NO @apply HERE - using plain CSS equivalents for this test */
+  margin: 0px;
+  padding: 0px; /* If you intended p-0 */
+  box-sizing: border-box; /* If you intended box-border */
+  overflow-x: hidden; /* If you intended overflow-x-hidden */
+  /* For font-sans, specify the font stack directly or omit for default: */
+  /* font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; */
+
+  background-color: #000;
+  color: #00ffff;
+  text-align: center; /* Main style we want to see working */
+}
+
+/* The following aggressive global centering rules have been removed.
+  Text alignment will now primarily be inherited from the 'body' rule above,
+  and can be overridden by Tailwind utility classes (e.g., text-left, text-right) 
+  on specific elements as needed.
+
+  Removed:
+  * { text-align: center !important; }
+  h1, h2, h3, h4, h5, h6, p, div, span, button { text-align: center !important; }
+  .grid > *, .flex > * { text-align: center !important; }
+*/
+
+/* Utility classes for specific text alignment. 
+  Using '!important' here should be a last resort if Tailwind utilities 
+  are not specific enough due to other conflicting styles. 
+  It's generally better to rely on standard Tailwind classes like 'text-left', 
+  'text-right', 'text-justify' directly in your JSX where needed.
+*/
+.text-left {
+  text-align: left !important; /* Kept as per your original file, but consider if !important is truly needed */
+}
+.text-right {
+  text-align: right !important; /* Kept as per your original file, but consider if !important is truly needed */
+}
+.text-justify {
+  text-align: justify !important; /* Kept as per your original file, but consider if !important is truly needed */
+}
+
+/* --- Your Custom Thematic Styles --- */
+
+/* NEON Styling */
+.neon-text {
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #00ffff,
+    0 0 15px #00ffff,
+    0 0 20px #00ffff;
+}
+.neon-border {
+  box-shadow:
+    0 0 10px #00ffff,
+    inset 0 0 10px #00ffff;
+}
+.neon-border-selected {
+  box-shadow:
+    0 0 20px #00ffff,
+    inset 0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+.shadow-neon {
+  box-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff,
+    0 0 30px #00ffff;
+}
+
+/* Glitch Effect */
+.glitch-subtitle {
+  animation: glitch-subtitle 2s infinite;
+}
+@keyframes glitch-subtitle {
+  0%, 90%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-2px); }
+  20% { transform: translateX(2px); }
+  30% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  50% { transform: translateX(-2px); }
+  60% { transform: translateX(2px); }
+  70% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+/* Floating Grid Background */
+.grid-background {
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  width: 100%; /* Ensure it covers the full width */
+  /* min-height: 100vh; /* Ensure it covers at least the full height if body doesn't stretch */
+  /* 'height: 100%' was in your original, ensure parent has height or use min-height: 100vh on body/html */
+  animation: grid-move 20s linear infinite;
+}
+@keyframes grid-move {
+  0% { background-position: 0 0; } /* Using background-position for grid animation */
+  100% { background-position: 50px 50px; }
+}
+
+/* Floating Particles - (Assuming you have elements with this class) */
+.floating-particle {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(90deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  75% { transform: translateY(-10px) rotate(270deg); }
+}
+
+/* Hover Effects */
+button:hover { /* This is a very general button hover, ensure it's what you want for ALL buttons */
+  box-shadow:
+    0 0 20px #00ffff,
+    inset 0 0 20px #00ffff;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* Added for horizontal scrollbars */
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ffff;
+  border-radius: 4px; /* Added for consistency */
+  box-shadow: 0 0 10px #00ffff;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cccc;
+}
+::-webkit-scrollbar-corner { /* Style for the corner where vertical and horizontal scrollbars meet */
+  background: #000;
+}
