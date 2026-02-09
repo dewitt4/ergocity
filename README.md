@@ -10,6 +10,7 @@ ErgoCity is an interactive web application that demonstrates the concept of **er
 
 **New to ErgoCity?** Start here:
 
+- **[Quick Start Guide](QUICK_START.md)** - Get started in 5 minutes! 🚀
 - **[User Guide](USER_GUIDE.md)** - Complete walkthrough for non-technical users
   - Getting started
   - How to play (Simulation & Blockchain modes)
